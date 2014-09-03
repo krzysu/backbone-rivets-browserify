@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Browserify Backbone Demo</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="products">
+        <h2>Products</h2>
+        
+        <section class="product" id="p01">
+          <div class="product-name">Name from server 1</div>
+          <div class="product-price">300 EUR from server</div>
+          <button class="js-product-add-to-cart">Add to cart</button>
+        </section>
+
+        <section class="product" id="p02">
+          <div class="product-name">Name from server 2</div>
+          <div class="product-price">200 EUR from server</div>
+          <button class="js-product-add-to-cart">Add to cart</button>
+        </section>
+      </div>
+
+      <section class="cart">
+        <h2>Cart</h2>
+        <div class="cart-empty">Empty</div>
+        <ul class="cart-products">
+          <li class="cart-product" rv-each-item="collection">
+            <span rv-text="item.name"></span>: <span rv-text="item.price"></span>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <script src="scripts/libs/jquery-1.11.1.min.js"></script>
+    <script src="dist/app.js"></script>
+  </body>
+</html>
