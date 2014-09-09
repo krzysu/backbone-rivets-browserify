@@ -1,5 +1,5 @@
 var Backbone = require('backbone');
-var rivets = require('../../node_modules/rivets-backbone-adapter.rivets-backbone');
+var rivets = require('rivets-backbone-adapter');
 Backbone.$ = jQuery; //jQuery is outside of browserify
 
 console.log(rivets);
