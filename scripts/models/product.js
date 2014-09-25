@@ -8,3 +8,4 @@ var ProductModel = Backbone.Model.extend({
 });
 
 module.exports = ProductModel;
+

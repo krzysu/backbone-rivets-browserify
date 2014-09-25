@@ -10,13 +10,12 @@ var ProductView = Backbone.View.extend({
   },
 
   addToCart: function(event) {
-    console.log('event', event);
-
-    var id = $(event.currentTarget).parents('.product').attr('id');
+    var $parent = $(event.currentTarget).parents('.product')
 
     var product = {
-      name: 'xx',
-      price: 'xx EUR'
+      id: $parent.attr('id'),
+      name: $parent.find('.product-name').text(),
+      price: $parent.find('.product-price').text()
     }
 
     this.trigger('addToCart', product);

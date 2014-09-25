@@ -10,7 +10,7 @@
 
       <div class="products">
         <h2>Products</h2>
-        
+
         <section class="product" id="p01">
           <div class="product-name">Name from server 1</div>
           <div class="product-price">300 EUR from server</div>
@@ -26,10 +26,10 @@
 
       <section class="cart">
         <h2>Cart</h2>
-        <div class="cart-empty">Empty</div>
+        <div class="cart-empty" rv-hide="collection | length">Empty</div>
         <ul class="cart-products">
           <li class="cart-product" rv-each-item="collection">
-            <span rv-text="item.name"></span>: <span rv-text="item.price"></span>
+            <span rv-text="item:name | log"></span>: <span rv-text="item:price"></span>
           </li>
         </ul>
       </section>

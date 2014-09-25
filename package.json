@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "backbone": "^1.1.2",
-    "rivets": "^0.7.0-rc1",
-    "rivets-backbone-adapter": "^0.1.6"
+    "rivets": "^0.7.0",
+    "rivets-backbone-adapter": "^2.0.1"
   }
 }

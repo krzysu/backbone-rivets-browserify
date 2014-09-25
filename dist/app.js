@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js":[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1608,7 +1608,7 @@
 
 }));
 
-},{"underscore":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/node_modules/underscore/underscore.js"}],"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/node_modules/underscore/underscore.js":[function(require,module,exports){
+},{"underscore":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/node_modules/underscore/underscore.js"}],"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/node_modules/underscore/underscore.js":[function(require,module,exports){
 //     Underscore.js 1.7.0
 //     http://underscorejs.org
 //     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -3025,7 +3025,7 @@
   }
 }.call(this));
 
-},{}],"/home/kurbas/experiments/browserify-backbone/node_modules/rivets-backbone-adapter/rivets-backbone.js":[function(require,module,exports){
+},{}],"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets-backbone-adapter/rivets-backbone.js":[function(require,module,exports){
 /* global define: true */
 (function (root, factory) {
     'use strict';
@@ -3153,17 +3153,17 @@
     }
 
     // Configure rivets data-bind for Backbone.js
-    rivets.adapters[':'] =  {
-        subscribe: onOffFactory('on'),
-        unsubscribe: onOffFactory('off'),
-        read: read,
-        publish: publish
+    rivets.adapters[':'] = {
+        observe: onOffFactory('on'),
+        unobserve: onOffFactory('off'),
+        get: read,
+        set: publish
     };
     
     return rivets;
 });
 
-},{"backbone":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js","rivets":"/home/kurbas/experiments/browserify-backbone/node_modules/rivets/dist/rivets.js"}],"/home/kurbas/experiments/browserify-backbone/node_modules/rivets/dist/rivets.js":[function(require,module,exports){
+},{"backbone":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js","rivets":"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets/dist/rivets.js"}],"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets/dist/rivets.js":[function(require,module,exports){
 // Rivets.js
 // version: 0.7.0-rc1
 // author: Michael Richards
@@ -4412,7 +4412,7 @@
 
 }).call(this);
 
-},{"sightglass":"/home/kurbas/experiments/browserify-backbone/node_modules/rivets/node_modules/sightglass/index.js"}],"/home/kurbas/experiments/browserify-backbone/node_modules/rivets/node_modules/sightglass/index.js":[function(require,module,exports){
+},{"sightglass":"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets/node_modules/sightglass/index.js"}],"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets/node_modules/sightglass/index.js":[function(require,module,exports){
 (function() {
   // Public sightglass interface.
   function sightglass(obj, keypath, callback, options) {
@@ -4608,14 +4608,13 @@
   }
 }).call(this)
 
-},{}],"/home/kurbas/experiments/browserify-backbone/scripts/app.js":[function(require,module,exports){
+},{}],"/home/krzysu/github/backbone-rivets-browserify/scripts/app.js":[function(require,module,exports){
 // some kind of controller
 
 // require dependencies
 var ProductView = require('./views/product.js');
 var CartView = require('./views/cart.js');
 var CartCollection = require('./models/cart.js');
-var ProductModel = require('./models/product.js');
 
 // init objects
 var productView = new ProductView();
@@ -4623,13 +4622,11 @@ var cartCollection = new CartCollection();
 
 var cartView = new CartView({
   collection: cartCollection
-  // model: new ProductModel()
 }).render();
 
 // some controller logic
 productView.on('addToCart', function(item) {
   cartCollection.add(item);
-  cartView.log();
 });
 
 
@@ -4637,7 +4634,7 @@ productView.on('addToCart', function(item) {
 
 
 
-},{"./models/cart.js":"/home/kurbas/experiments/browserify-backbone/scripts/models/cart.js","./models/product.js":"/home/kurbas/experiments/browserify-backbone/scripts/models/product.js","./views/cart.js":"/home/kurbas/experiments/browserify-backbone/scripts/views/cart.js","./views/product.js":"/home/kurbas/experiments/browserify-backbone/scripts/views/product.js"}],"/home/kurbas/experiments/browserify-backbone/scripts/models/cart.js":[function(require,module,exports){
+},{"./models/cart.js":"/home/krzysu/github/backbone-rivets-browserify/scripts/models/cart.js","./views/cart.js":"/home/krzysu/github/backbone-rivets-browserify/scripts/views/cart.js","./views/product.js":"/home/krzysu/github/backbone-rivets-browserify/scripts/views/product.js"}],"/home/krzysu/github/backbone-rivets-browserify/scripts/models/cart.js":[function(require,module,exports){
 var Backbone = require('backbone');
 var ProductModel = require('./product');
 
@@ -4647,7 +4644,7 @@ var CartCollection = Backbone.Collection.extend({
 
 module.exports = CartCollection;
 
-},{"./product":"/home/kurbas/experiments/browserify-backbone/scripts/models/product.js","backbone":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js"}],"/home/kurbas/experiments/browserify-backbone/scripts/models/product.js":[function(require,module,exports){
+},{"./product":"/home/krzysu/github/backbone-rivets-browserify/scripts/models/product.js","backbone":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js"}],"/home/krzysu/github/backbone-rivets-browserify/scripts/models/product.js":[function(require,module,exports){
 var Backbone = require('backbone');
 
 var ProductModel = Backbone.Model.extend({
@@ -4658,35 +4655,41 @@ var ProductModel = Backbone.Model.extend({
 });
 
 module.exports = ProductModel;
-},{"backbone":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js"}],"/home/kurbas/experiments/browserify-backbone/scripts/views/cart.js":[function(require,module,exports){
+
+
+},{"backbone":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js"}],"/home/krzysu/github/backbone-rivets-browserify/scripts/views/cart.js":[function(require,module,exports){
 var Backbone = require('backbone');
-var rivets = require('rivets-backbone-adapter');
+require('rivets-backbone-adapter');
+var rivets = require('rivets');
 Backbone.$ = jQuery; //jQuery is outside of browserify
 
-console.log(rivets);
+rivets.formatters.log = function(value) {
+  console.log(value);
+  return value;
+}
+
+rivets.formatters.length = function(value) {
+  return value.length;
+}
 
 var CartView = Backbone.View.extend({
-
   el: ".cart",
 
   render: function() {
-    
-    this.binding = rivets.bind(this.el, {collection: this.collection});
+    this.binding = rivets.bind(this.el, {
+      collection: this.collection.models
+    });
     return this;
   },
 
   remove: function() {
     this.binding.unbind();
-  },
-
-  log: function() {
-    console.log(this.collection);
   }
 
 });
 
 module.exports = CartView;
-},{"backbone":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js","rivets-backbone-adapter":"/home/kurbas/experiments/browserify-backbone/node_modules/rivets-backbone-adapter/rivets-backbone.js"}],"/home/kurbas/experiments/browserify-backbone/scripts/views/product.js":[function(require,module,exports){
+},{"backbone":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js","rivets":"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets/dist/rivets.js","rivets-backbone-adapter":"/home/krzysu/github/backbone-rivets-browserify/node_modules/rivets-backbone-adapter/rivets-backbone.js"}],"/home/krzysu/github/backbone-rivets-browserify/scripts/views/product.js":[function(require,module,exports){
 var Backbone = require('backbone');
 Backbone.$ = jQuery; //jQuery is outside of browserify
 
@@ -4699,13 +4702,12 @@ var ProductView = Backbone.View.extend({
   },
 
   addToCart: function(event) {
-    console.log('event', event);
-
-    var id = $(event.currentTarget).parents('.product').attr('id');
+    var $parent = $(event.currentTarget).parents('.product')
 
     var product = {
-      name: 'xx',
-      price: 'xx EUR'
+      id: $parent.attr('id'),
+      name: $parent.find('.product-name').text(),
+      price: $parent.find('.product-price').text()
     }
 
     this.trigger('addToCart', product);
@@ -4714,4 +4716,4 @@ var ProductView = Backbone.View.extend({
 });
 
 module.exports = ProductView;
-},{"backbone":"/home/kurbas/experiments/browserify-backbone/node_modules/backbone/backbone.js"}]},{},["/home/kurbas/experiments/browserify-backbone/scripts/app.js"]);
+},{"backbone":"/home/krzysu/github/backbone-rivets-browserify/node_modules/backbone/backbone.js"}]},{},["/home/krzysu/github/backbone-rivets-browserify/scripts/app.js"]);
