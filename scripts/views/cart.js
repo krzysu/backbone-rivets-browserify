@@ -25,7 +25,6 @@ var CartView = Backbone.View.extend({
   remove: function() {
     this.binding.unbind();
   }
-
 });
 
 module.exports = CartView;

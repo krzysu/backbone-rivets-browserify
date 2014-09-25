@@ -13,7 +13,7 @@ var ProductView = Backbone.View.extend({
     var $parent = $(event.currentTarget).parents('.product')
 
     var product = {
-      id: $parent.attr('id'),
+      // id: $parent.attr('id'),
       name: $parent.find('.product-name').text(),
       price: $parent.find('.product-price').text()
     }
