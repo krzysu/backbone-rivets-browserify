@@ -18,7 +18,3 @@ productView.on('addToCart', function(item) {
   cartCollection.add(item);
 });
 
-
-
-
-
